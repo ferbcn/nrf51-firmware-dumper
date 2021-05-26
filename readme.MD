@@ -119,7 +119,7 @@ That is from 0x00000000 to 0x00040000 in steps of 4 yielding a file with size
 Success, we just obtained the firmware! 
 
 No we can unlock the device by mass erasing it and and then reflashing the firmware onto it.
-> mass erase
+> nrf51 mass_erase
 > 
 > program erase nrf51.bin
 
