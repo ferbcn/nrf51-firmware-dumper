@@ -1,11 +1,16 @@
-Hacking the NOKE Bluetooth padlock - nrf51822 (ARM Cortex-M0) 
+## Hacking the NOKE Bluetooth padlock - nrf51822 (ARM Cortex-M0)* 
 
-**Description**:
+### Description:
 
 nrf51 - Readout Protection is basically broken.
-Registers on the the chip can be read and manipulated allowing us to load instructions into memory that will effectively read out any address of the onboard flash memory and in this way dumping the whole firmware.
+Registers on the chip can be read and set, allowing us to load instructions into memory that will effectively read out any address of the onboard flash memory and in this way dumping the whole firmware.
 
-We are a going to use swd with an st-link device and openocd to connect to the debugging port of the device. Test pins are nicely labeled so here comes the soldering iron and some thin wire that will make the physical connection to the debugger much more convenient and durable.
+We are a going to use a st-link debugger and openocd to connect to the swd (single wire debugger) port of the NOKE. Test pins are nicely labeled so here comes the soldering iron and some thin wire that will make the physical connection to the debugger much more convenient and durable.
+
+
+![alt text](noke0.jpg)
+
+![alt text](noke1.jpg)
 
 $ openocd -f stlink.cfg -f nrf51.cfg
 Open On-Chip Debugger 0.11.0
@@ -125,15 +130,13 @@ And we check our RBCONF register to see that our chip was successfully unlocked.
 
 Nice!
 
-**Reference**:
-
-* Inspiration:
-
+### Reference:
+#### Inspiration:
 "How the Apple AirTags were hacked", https://www.youtube.com/watch?v=_E0PWQvW-14
 "nRF52 Debug Resurrection", https://limitedresults.com/2020/06/nrf52-debug-resurrection-approtect-bypass/
 
-* Firmware dumping: 
-
+#### Firmware dumping: 
 "Firmware dumping technique for an ARM Cortex-M0 SoC", https://blog.includesecurity.com/2015/11/firmware-dumping-technique-for-an-arm-cortex-m0-soc/
 
-
+#### Code:
+https://github.com/geeksville/nrf51-extractor/blob/master/readout.py
