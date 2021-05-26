@@ -1,4 +1,4 @@
-## Hacking the NOKE Bluetooth padlock - nrf51822 (ARM Cortex-M0)* 
+## Hacking the NOKE Bluetooth padlock - nrf51822 (ARM Cortex-M0)
 
 ### Description:
 
